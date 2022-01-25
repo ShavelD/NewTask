@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    color: rgb(248, 236, 221);
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+body {
+    background-color: #000;
+
+    position: relative;
+}
+
+.kanban {
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 20px;
+
+
+}
+
+.kanban__boards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.boards-hov::hover {
+    background-color: beige;
+}
+
+.kanban__header {
+    max-width: 1400px;
+    display: flex;
+    background-color: #262626;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.kanban__header>*:not(:last-child) {
+    margin-right: 10px;
+}
+
+.board {
+    padding: 20px;
+    background-color: #262626;
+    margin-top: 20px;
+    border-radius: 15px;
+    min-height: 200px;
+    height: 100%;
+}
+
+.board__title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 25px;
+    background-color: rgb(81, 37, 153);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .1s;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+}
+
+
+.btn:hover {
+    box-shadow: 2px 2px 3px 1px rgb(24, 24, 24);
+}
+
+.tile-wrap {
+    display: grid;
+    gap: 10px;
+}
+
+.tile {
+    background-color: #C340A1;
+    border-radius: 5px;
+    padding: 20px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.tile:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.tile__title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    max-width: 255px;
+    overflow: hidden;
+
+}
+
+.tile__description {
+    margin-bottom: 25px;
+    max-width: 255px;
+    overflow: hidden;
+}
+
+.tile__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dev {
+    display: flex;
+}
+
+.dev__item {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.dev__item:hover::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    transition: .3s;
+    background-color: rgb(15, 15, 15);
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%) rotate(45deg);
+}
+
+.dev__item:hover::after {
+    transition: .3s;
+    content: attr(data-dev-name);
+    padding: 10px 20px;
+    background-color: rgb(15, 15, 15);
+    width: max-content;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    border-radius: 3px;
+}
+
+
+.dev__item:not(:first-child) {
+    margin-left: -5px;
+}
+
+.dev__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(2.5);
+}
+
+.tile__label {
+    background-color: rgba(0, 0, 0, .3);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 3px;
+    height: 30px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.tile:hover {
+    transform: translateX(-2px) translateY(-2px);
+    box-shadow: 2px 2px 3px 1px rgb(24, 24, 24);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    background-color: #262626;
+    padding: 20px;
+    width: 450px;
+    overflow: hidden;
+}
+
+.form__title {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+}
+
+.form__close-btn {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background-color: tomato;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 0 0 0 15px;
+    cursor: pointer;
+}
+
+.form__close-btn::before {
+    content: '';
+    width: 2px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: rgb(34, 34, 34);
+}
+
+.form__close-btn::after {
+    content: '';
+    width: 2px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    background-color: rgb(34, 34, 34);
+}
+
+.form__input {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin: 10px auto;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid tomato;
+    padding: 5px;
+    resize: none;
+    background: transparent;
+}
+
+.form__text-area {
+    height: 5em;
+}
+
+.form__input::placeholder {
+    color: rgb(243, 215, 179);
+}
+
+.form__submit {
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 700;
+    background-color: tomato;
+    color: rgb(34, 34, 34);
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+.incorrect-input {
+    background-color: tomato;
+    transition: .3s;
+}
+
+.radio-label__input {
+    display: none;
+}
+
+.radio-label {
+    display: inline-block;
+    margin: 5px;
+    margin-left: 0;
+
+}
+
+.radio-label__content {
+    content: '';
+    display: inline-block;
+    padding: 5px 10px;
+    background: rgb(243, 215, 179);
+    border-radius: 5px;
+    opacity: .2;
+    color: rgb(34, 34, 34);
+    font-weight: 700;
+}
+
+.radio-label__content::before {
+    content: attr(data-content);
+}
+
+.radio-label__input:checked+.radio-label__content {
+    opacity: 1;
+    transition: .2s;
+}
+
+.form__sub-title {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.radio-label__input:checked+.dev-radio__item {
+    opacity: 1;
+}
+
+.dev-radio {
+    display: flex;
+    gap: 20px;
+}
+
+.dev-radio__item {
+    display: inline-block;
+    opacity: .2;
+    transition: .3s;
+}
+
+.dev-radio__img {}
+
+.dev-radio__text {
+    text-align: center;
+}
+
+/*=======dnd_styles=================*/
+
+.dnd-hide {
+    display: none;
+}
+
+/* 
+.dnd-hovered {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 50px -6px #262626;
+} */

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="styles/main.css">
+   <title>KANBAN BOARD</title>
+</head>
+
+<body>
+   <main class="kanban">
+      <header class=" kanban__header">
+         <button class="btn" id="newTaskBtn" data-pop-up-toggle="addTask">New task
+         </button>
+      </header>
+      <section class="kanban__boards">
+         <div class="board-wrap">
+
+            <div class="board" id="backlog-board">
+
+               <h2 class="board__title">Backlog</h2>
+            </div>
+         </div>
+         <div class="board-wrap">
+            <div class="board" id="to-do-board">
+               <h2 class="board__title">To do</h2>
+            </div>
+         </div>
+         <div class="board-wrap">
+            <div class="board" id="in-progress-board">
+               <h2 class="board__title">In progress</h2>
+            </div>
+         </div>
+         <div class="board-wrap">
+            <div class="board" id="done-board">
+               <h2 class="board__title">Done</h2>
+            </div>
+         </div>
+      </section>
+   </main>
+   <div class="overlay" hidden id="newTaskForm" data-pop-up-toggle="addTask">
+      <form class="form" name="createTask" autocomplete="off">
+         <h3 class="form__title">New task</h3>
+         <input class="form__input" name="taskTitle" type="text" placeholder="Type task title">
+         <textarea class="form__input form__text-area" name="taskDescription"
+            placeholder="Type task description"></textarea>
+         <h4 class="form__sub-title">Developers</h4>
+         <div class="dev-radio" id="newTaskFormDev">
+         </div>
+
+
+         <h4 class="form__sub-title">Task priority</h4>
+         <div class="radio-lavel-wrap">
+
+            <label class="radio-label">
+               <input value="0" name="taskColor" class="radio-label__input" type="radio">
+               <span class="radio-label__content">Urgently</span>
+            </label>
+            <label class="radio-label">
+               <input value="1" name="taskColor" class="radio-label__input" type="radio">
+               <span class="radio-label__content">Not very urgent</span>
+            </label>
+            <label class="radio-label">
+               <input value="2" name="taskColor" class="radio-label__input" type="radio">
+               <span class="radio-label__content">Can wait</span>
+            </label>
+            <label class="radio-label">
+               <input value="3" name="taskColor" class="radio-label__input" type="radio">
+               <span class="radio-label__content">How will the time be</span>
+            </label>
+            <label class="radio-label">
+               <input value="4" name="taskColor" class="radio-label__input" type="radio">
+               <span class="radio-label__content">Other tasks are required</span>
+            </label>
+         </div>
+
+         <h4 class="form__sub-title">Task label</h4>
+         <div class="radio-lavel-wrap">
+
+            <label class="radio-label">
+               <input value="HTML/CSS" name="taskLabel" class="radio-label__input" type="radio">
+               <span class="radio-label__content">HTML/CSS</span>
+            </label>
+            <label class="radio-label">
+               <input value="JS" name="taskLabel" class="radio-label__input" type="radio">
+               <span class="radio-label__content">JS</span>
+            </label>
+            <label class="radio-label">
+               <input value="Web" name="taskLabel" class="radio-label__input" type="radio">
+               <span class="radio-label__content">Web</span>
+            </label>
+            <label class="radio-label">
+               <input value="Other" name="taskLabel" class="radio-label__input" type="radio">
+               <span class="radio-label__content">Other</span>
+            </label>
+         </div>
+
+         <h4 class="form__sub-title">Task board</h4>
+         <label class="radio-label">
+            <input value="backlog" checked name="taskBoard" class="radio-label__input" type="radio">
+            <span class="radio-label__content">Backlog</span>
+         </label>
+         <label class="radio-label">
+            <input value="toDo" name="taskBoard" class="radio-label__input" type="radio">
+            <span class="radio-label__content">To do</span>
+         </label>
+         <label class="radio-label">
+            <input value="inProgress" name="taskBoard" class="radio-label__input" type="radio">
+            <span class="radio-label__content">In progress</span>
+         </label>
+         <label class="radio-label">
+            <input value="done" name="taskBoard" class="radio-label__input" type="radio">
+            <span class="radio-label__content">Done</span>
+         </label>
+         <input class="form__submit" type="submit" value="Create">
+         <div id="closePopUp" class="form__close-btn" data-pop-up-toggle="addTask"></div>
+      </form>
+   </div>
+
+   <script src="./scripts/main.js"></script>
+
+</body>
+
+</html>
